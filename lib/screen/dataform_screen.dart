@@ -35,7 +35,6 @@ class DataformScreen extends StatelessWidget {
                           builder: (context) => DatamakananScreen(
                                 nama: nama.text,
                                 notelepon: notelepon.text,
-                                alamat: alamat.text,
                               )),
                       (route) => false);
                   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(

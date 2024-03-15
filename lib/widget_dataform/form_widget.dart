@@ -36,11 +36,8 @@ class _FormWidgetState extends State<FormWidget> {
               prefixIcon: Icon(Icons.input),
             ),
             validator: (value) {
-              bool valid = RegExp(r"@").hasMatch(value!);
-              if (value.isEmpty) {
-                return "Masukkan Nama dengan benar";
-              } else if (!valid) {
-                return "Nama Harus Text";
+              if (value == null || value.isEmpty) {
+                return 'Masukkan nama terlebih dahulu!';
               }
               return null;
             },
@@ -63,7 +60,17 @@ class _FormWidgetState extends State<FormWidget> {
               prefixIcon: Icon(Icons.home),
             ),
           ),
-          Text('Jenis Kelamin'),
+          const Row(
+            children: [
+              Text(
+                'Jenis Kelamin',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                ),
+              )
+            ],
+          ),
           Row(
             children: [
               Radio<int>(
@@ -75,8 +82,8 @@ class _FormWidgetState extends State<FormWidget> {
                   });
                 },
               ),
-              Text('P'),
-              SizedBox(width: 20),
+              const Text('P'),
+              const SizedBox(width: 20),
               Radio<int>(
                 value: 2,
                 groupValue: selectedOption,
@@ -86,7 +93,7 @@ class _FormWidgetState extends State<FormWidget> {
                   });
                 },
               ),
-              Text('L'),
+              const Text('L'),
             ],
           ),
         ],
