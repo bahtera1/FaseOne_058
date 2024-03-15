@@ -18,6 +18,8 @@ class FormWidget extends StatefulWidget {
 }
 
 class _FormWidgetState extends State<FormWidget> {
+  int selectedOption = 1;
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -60,6 +62,32 @@ class _FormWidgetState extends State<FormWidget> {
               hintText: "Masukan Alamat",
               prefixIcon: Icon(Icons.home),
             ),
+          ),
+          Text('Jenis Kelamin'),
+          Row(
+            children: [
+              Radio<int>(
+                value: 1,
+                groupValue: selectedOption,
+                onChanged: (value) {
+                  setState(() {
+                    selectedOption = value!;
+                  });
+                },
+              ),
+              Text('P'),
+              SizedBox(width: 20),
+              Radio<int>(
+                value: 2,
+                groupValue: selectedOption,
+                onChanged: (value) {
+                  setState(() {
+                    selectedOption = value!;
+                  });
+                },
+              ),
+              Text('L'),
+            ],
           ),
         ],
       ),
