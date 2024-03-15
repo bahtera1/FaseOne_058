@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class FormWidget extends StatefulWidget {
-  const FormWidget(
+class FormWidget2 extends StatefulWidget {
+  const FormWidget2(
       {super.key,
       required this.formKey,
       required this.etMakanan,
@@ -14,10 +14,10 @@ class FormWidget extends StatefulWidget {
   final TextEditingController etDesert;
 
   @override
-  State<FormWidget> createState() => _FormWidgetState();
+  State<FormWidget2> createState() => _FormWidget2State();
 }
 
-class _FormWidgetState extends State<FormWidget> {
+class _FormWidget2State extends State<FormWidget2> {
   @override
   Widget build(BuildContext context) {
     return Form(

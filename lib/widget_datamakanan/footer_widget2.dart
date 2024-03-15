@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class FooterWidget extends StatelessWidget {
-  const FooterWidget({super.key, required this.onPressedDatamakanan});
+class FooterWidget2 extends StatelessWidget {
+  const FooterWidget2({super.key, required this.onPressedDatamakanan});
 
   final VoidCallback onPressedDatamakanan;
 

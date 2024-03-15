@@ -26,23 +26,21 @@ class DataformScreen extends StatelessWidget {
               etAlamat: alamat,
               formkey: formKey,
             ),
-            FooterWidget(
-              onPressedDataform: () {
-                if (formKey.currentState!.validate()) {
-                  Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => DatamakananScreen(
-                                nama: nama.text,
-                                notelepon: notelepon.text,
-                              )),
-                      (route) => false);
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text("Login berhasil"),
-                  ));
-                }
-              },
-            )
+            FooterWidget(onPressedDataform: () {
+              if (formKey.currentState!.validate()) {
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => DatamakananScreen(
+                              nama: nama.text,
+                              notelepon: notelepon.text,
+                            )),
+                    (route) => false);
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  content: Text("Login berhasil"),
+                ));
+              }
+            })
           ]),
         ),
       )),
