@@ -8,13 +8,7 @@ class HeaderWidget extends StatelessWidget {
     return const Column(
       children: [
         SizedBox(height: 25),
-        Text(
-          'Food Network',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
-          ),
-        ),
+        Text("Data Form"),
         SizedBox(
           height: 25,
         ),

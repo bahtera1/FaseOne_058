@@ -10,40 +10,45 @@ class DataformScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var nama = TextEditingController();
-    var notelepon = TextEditingController();
+    var notelp = TextEditingController();
     var alamat = TextEditingController();
-    var formKey = GlobalKey<FormState>();
+    var formkey = GlobalKey<FormState>();
     return Scaffold(
       body: SafeArea(
-          child: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(children: [
-            const HeaderWidget(),
-            FormWidget(
-              etNama: nama,
-              etNoTelepon: notelepon,
-              etAlamat: alamat,
-              formkey: formKey,
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              children: [
+                const HeaderWidget(),
+                FormWidget(
+                  etNama: nama,
+                  etNoTelepon: notelp,
+                  etAlamat: alamat,
+                  formkey: formkey,
+                ),
+                FooterWidget(
+                  onPressedDataform: () {
+                    if (formkey.currentState!.validate()) {
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DatamakananScreen(
+                                    nama: nama.text,
+                                    notelepon: notelp.text,
+                                  )),
+                          (route) => false);
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text("Data Telah Masuk"),
+                      ));
+                    }
+                  },
+                )
+              ],
             ),
-            FooterWidget(onPressedDataform: () {
-              if (formKey.currentState!.validate()) {
-                Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => DatamakananScreen(
-                              nama: nama.text,
-                              notelepon: notelepon.text,
-                            )),
-                    (route) => false);
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  content: Text("Login berhasil"),
-                ));
-              }
-            })
-          ]),
+          ),
         ),
-      )),
+      ),
     );
   }
 }
